@@ -6,6 +6,18 @@ var formattedEverything = {};
 
 var server = http.createServer((request, response) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Request-Method", "*");
+  response.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
+  response.setHeader("Access-Control-Allow-Headers", "*");
+  // if (request.method === "GET" && request.url === "/") {
+  //   response.write("nice yeet");
+  //   response.end();
+  // }
+  if (request.method === "OPTIONS") {
+    response.writeHead(200);
+    response.end();
+    return;
+  }
   if (request.method === "POST" && request.url === "/map/formatted") {
     request.on("data", function(chunk) {
       for (id in formattedEverything) {
