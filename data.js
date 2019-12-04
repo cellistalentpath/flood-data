@@ -38,7 +38,7 @@ var server = http.createServer((request, response) => {
   }
   if (request.method === "GET" && request.url === "/map/formatted/reset") {
     formattedEverything = {};
-    response.write(formattedEverything);
+    response.write(JSON.stringify(formattedEverything));
     response.end();
   }
 });
