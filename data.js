@@ -1,4 +1,5 @@
 var http = require("http");
+var cors = require("cors");
 
 var hostname = "localhost";
 var port = process.env.PORT || 5000;
